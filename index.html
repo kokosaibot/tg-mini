@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Telegram Mini App</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body {
+      background: #0f172a;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .box {
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 20px;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+      background: #22c55e;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h2>🚀 Моё первое Mini App</h2>
+
+<div class="box" id="info">
+  Загрузка...
+</div>
+
+<button onclick="Telegram.WebApp.close()">Закрыть</button>
+
+<script>
+  const tg = window.Telegram.WebApp;
+  tg.ready();
+
+  const user = tg.initDataUnsafe.user;
+
+  document.getElementById("info").innerHTML = `
+    <b>Имя:</b> ${user.first_name}<br>
+    <b>ID:</b> ${user.id}
+  `;
+</script>
+
+</body>
+</html>
